@@ -15,6 +15,10 @@ void printGames();
 std::vector<VideoGame*> vVec;
 
 int main() {
+
+	cout << "                       Video Games Data Entry\n";
+	cout << "***************************************************************************\n" << endl;
+
 	createMenu();
 }
 
@@ -22,34 +26,39 @@ void createMenu()
 {
 	char gameType, menuSelect;
 
-	cout << "                       Video Games Data Entry\n";
-	cout << "***************************************************************************\n" << endl;
-
 	cout << "Do you want to enter data for a Computer Game or a console Game (O / C) : ";
 	cin >> gameType;
 
-	switch (gameType)
+	if (gameType == 'O' || gameType == 'C')
 	{
-	case 'O':
-		createComputerGame();
-		break;
+		switch (gameType)
+		{
+		case 'O':
+			createComputerGame();
+			break;
 
-	case 'C':
-		createConsoleGame();
-		break;
+		case 'C':
+			createConsoleGame();
+			break;
 
-	default:
-		createMenu();
-		break;
+		default:
+			createMenu();
+			break;
+		}
 	}
+	else
+	{
+		cout << "You have enter an incorrect game type. Please try again" << endl;
+		createMenu();
+	}
+	
 
 	cout << "Do you want to add another item (Y / N): ";
 	cin >> menuSelect;
 
 	if (menuSelect == 'Y')
 	{
-		cout << "Do you want to enter data for a Computer Game or a console Game (O / C) : ";
-		cin >> gameType;
+		createMenu();
 	}
 	else
 	{
@@ -63,11 +72,12 @@ void createConsoleGame()
 	float price{};
 
 	cout << "Please enter title of console game: ";
-	std::getline(std::cin, name);
-	//cout << "Please enter price: ";
-	//cin >> price;
-	//cout << "Please enter console type: ";
-	//cin >> consoleType;
+	cin.ignore();
+	getline(cin, name);
+	cout << "Please enter price: ";
+	cin >> price;
+	cout << "Please enter console type: ";
+	cin >> consoleType;
 
 
 
@@ -80,13 +90,12 @@ void createComputerGame()
 	float price{};
 
 	cout << "Please enter title of computer game : ";
+	cin.ignore();
 	getline(cin, name);
-	//cout << "Please enter price: ";
-	//cin >> price;
-	//cout << "Please enter operating system type: ";
-	//cin >> osType;
-
-
+	cout << "Please enter price: ";
+	cin >> price;
+	cout << "Please enter operating system type: ";
+	cin >> osType;
 
 	vVec.push_back(new ComputerGame(name, price, osType));
 }

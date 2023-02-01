@@ -7,5 +7,5 @@ void ConsoleGame::display()
 	std::cout << "Price: " << price << std::endl;
 	std::cout << "Console Type: " << consoleType << std::endl;
 
-	std::cout << "\n*********************************************************************" << std::endl;
+	std::cout << "\n***********************************************" << std::endl;
 }

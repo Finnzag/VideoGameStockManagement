@@ -7,5 +7,5 @@ void ComputerGame::display()
 	std::cout << "Price: " << price << std::endl;
 	std::cout << "OS Type: " << operatingSystemType << std::endl;
 
-	std::cout << "\n*********************************************************************" << std::endl;
+	std::cout << "\n***********************************************" << std::endl;
 }
